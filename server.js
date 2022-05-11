@@ -41,11 +41,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('hbs', exphbs({extname: 'hbs'}))
 app.set('view engine', 'hbs')
 
+app.get('/api/product', product)
 app.use('/', require('./routes/homeRoutes'))
 app.use('/auth', require('./routes/authRoutes'))
 app.use('/post', require('./routes/postRoutes'))
 app.use('/send', require('./routes/commentRoutes'))
-app.get('/api/product', product)
+
 // catch 404 and forward to error handler
 app.get('*', function(req, res){
   res.send(
