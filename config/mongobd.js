@@ -1,0 +1,1 @@
+MONGO_URI="mongodb+srv://rasulov:rasulov@cluster0.5zt4b.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"

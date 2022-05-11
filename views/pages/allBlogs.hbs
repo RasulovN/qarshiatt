@@ -1,0 +1,32 @@
+{{> navbar}}
+
+<section class="allBlog-container">
+<div class="container">
+  <div class="row allBlog-rows">
+      {{#each blogs}}
+    <div class="col-md-6 sm-5 col-sm-offset-1">
+          <a href="/blogpost?post={{slugUrl}}" class="read-post-more">
+        <figure class="snip1527">
+          <div class="image">
+            <img class="img w-100 all-blog-img"  src="/uploads/{{image}}" alt="{{title}}">
+            </div>
+          <figcaption>
+            <div class="date">
+              {{!-- <span class="day">28</span><span class="month">Oct</span> --}}
+              <span class="day"> {{createdAt}}</span>
+              </div>
+              <h3>{{title}} </h3>
+            <p>
+               Read more →
+            </p>
+          </figcaption>
+        </figure>
+      </a> 
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+</section>
+
+{{> footer}}

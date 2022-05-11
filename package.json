@@ -1,0 +1,40 @@
+{
+  "name": "attlive",
+  "version": "1.0.0",
+  "description": "node js att web site",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "mongodb"
+  ],
+  "author": "Rasulov <nurbekrasulov@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^33.0.0",
+    "body-parser": "^1.20.0",
+    "ckeditor4": "^4.17.2",
+    "connect-mongodb-session": "^3.0.0",
+    "cookie-parser": "^1.4.6",
+    "countapi-js": "^1.0.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "express-flash": "^0.0.2",
+    "express-handlebars": "^5.3.2",
+    "express-session": "^1.17.2",
+    "mongoose": "^5.13.4",
+    "particles.js": "^2.0.0",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "slugify": "^1.6.0",
+    "superagent": "^6.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
