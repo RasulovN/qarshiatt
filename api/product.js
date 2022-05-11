@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 
-router.get("/api/product", async(req, res) => {
+router.get("/", async(req, res) => {
     try {
         res.json({
             status: 200,
