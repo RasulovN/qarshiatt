@@ -1,0 +1,157 @@
+<link rel="stylesheet" href="/css/style.css">
+
+<style>
+	a {
+		text-decoration: none;
+	}
+	/* ADD BLOG */
+.addBlogPost {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('../assets/img/Qarshi-ATT.jpg') no-repeat;
+    background:linear-gradient(rgba(4, 9, 30, 0.568), rgba(4, 9, 30, 0.568)), url("../assets/img/Qarshi-ATT.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.card-blog {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+/* ADD BLOG END */
+/* LOGIN REGISTER */
+.addBlogPost {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('../assets/img/Qarshi-ATT.jpg') no-repeat;
+    background:linear-gradient(rgba(4, 9, 30, 0.671), rgba(4, 9, 30, 0.568)), url("../assets/img/Qarshi-ATT.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-main{
+	width: 350px;
+	height: 500px;
+	background: red;
+	overflow: hidden;
+	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+	border-radius: 10px;
+	box-shadow: 5px 20px 50px #000;
+	margin-top: 100px;
+}
+#chk{
+	display: none;
+}
+.signup{
+	position: relative;
+	width:100%;
+	height: 100%;
+}
+.login-label{
+	color: #fff;
+	font-size: 2.3em;
+	justify-content: center;
+	display: flex;
+	margin: 60px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+.form-input{
+	width: 60%;
+	height: 20px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
+	margin: 20px auto;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+.login-button{
+	width: 60%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background: #573b8a;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 20px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+.login-button:hover{
+	background: #6d44b8;
+}
+.login{
+	height: 460px;
+	background: #eee;
+	border-radius: 60% / 10%;
+	transform: translateY(-180px);
+	transition: .8s ease-in-out;
+}
+.login .login-label{
+	color: #573b8a;
+	transform: scale(.6);
+}
+
+#chk:checked ~ .login{
+	transform: translateY(-500px);
+}
+#chk:checked ~ .login .login-label{
+	transform: scale(1);	
+}
+#chk:checked ~ .signup .login-label{
+	transform: scale(.6);
+}
+
+/* LOGIN REGISTER END */
+</style>
+{{> postNavbar}}
+<section class="addBlogPost">
+<div class="auth-main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+			<div class="signup">
+                {{#if logErr}}
+                    <div class="alert alert-danger">
+                        {{logErr}}
+                    </div>
+                {{/if}}
+				<form action="/auth/login" method="POST" class="login-form">
+					<label  for="email" class="login-label" aria-hidden="true">Login</label>
+					<input type="email" name="email" class="form-input" id="email" placeholder="Email" required="true" required>
+					<input type="password" class="form-input" name="password" id="password" placeholder="Password" required="true">
+					<button type="submit" class="login-button">Login</button>
+				</form>
+			</div>
+
+			{{!-- <div class="login">
+                {{#if regErr}}
+                    <div class="alert alert-danger">
+                        {{regErr}}
+                    </div>
+                {{/if}}
+				<form action="/auth/register" method="POST">
+                	<label for="chk" class="login-label" aria-hidden="true">Sign up</label>
+                    <input type="text" class="form-input" id="fullName" placeholder="your name" name="fullName" required="true" required>
+                    <input type="text" class="form-input" id="phone" placeholder="your phone" name="phone" value="+998" required>
+					<input type="email" class="form-input" id="email" placeholder="name@example.com" name="email" required="true" required>
+					<input type="password" class="form-input" id="password" placeholder="your password" name="password" required="true" required>
+                    <input type="password" class="form-input" id="confirmPassword" placeholder="your password again" name="confirmPassword" required> 
+                   
+
+					<button type="submit" class="login-button">Sign up</button>
+				</form>
+			</div> --}}
+	</div>
+
+
+</section>
+{{> footer}}

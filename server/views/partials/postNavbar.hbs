@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="/css/style.css">
+<section class="headLang">
+    <div class="flag">
+        <img src="assets/img/logos/uz.png" width="40px" style="margin-left: 20px;" width="80px" height="20px" alt="">
+    </div>
+    <div id="google_translate_element">translate</div>
+
+</section>
+<header class="header">
+     <a href="/" class="logo d-flex"> 
+       {{!-- <i class="fas fa-building fa-2x"></i> --}}
+       <img src="assets/img/logos/tatulogo.png" width="50px" height="40px" alt="">
+        <div class="logoLang">
+           Qashqadaryo Axborot <br> Texnalogiyalari Texnikumi 
+        </div>
+      </a> 
+    <nav class="navbar">
+         <div id="nav-close" class="fas fa-times" onclick="navBtnCls()"></div>
+         <a class="nav-link nabLangHome" href="/">HOME</a>
+        <a class="nav-link navLangAbout" href="/about">ABOUT</a>
+        <a class="nav-link navLangBooks" href="/books">BOOKS</a>
+        <a class="nav-link navLangNews" href="/blogs">NEWS</a>
+        {{!-- <a class="nav-link navLangNews" href="/login">Login</a> --}}
+         {{#if isLogged}}
+          <div class="btn-group">
+            <button type="button" class="dropdown-toggle btn-page navAddLang" data-bs-toggle="dropdown" aria-expanded="false">
+                ADD
+            </button>
+            <ul class="dropdown-menu">
+                <li class="addNewsLang">
+                    <a class="dropdown-items nav-link-admin" href="/post/add">ADD NEWS</a></li>
+                <li class="nav-link-admin"><hr class="dropdown-divider"></li>
+                <li class="nav-link-admin logOutLang">
+                <a class="nav-link-admin" href="/auth/logout">Log out</a>
+                    </li>
+                {{else}}
+                <a class="nav-link" href="/auth/login">Login</a>
+                {{!-- <li class="nav-link"><a class="dropdown-items regNavLang" href="/auth/register">Sign up</a></li> --}}
+                {{/if}}
+            </ul>
+        </div>
+    </nav>
+
+    <div class="nav-icons d-flex">
+        <div class="navbtn" id="menu-btn" onclick="navBtn()"><i class="fas fa-bars nav-ico1"></i></div>
+        <div class="navbtn mt-2" id="search-btn" onclick="navSearch()"><i class="fas fa-search nav-ico"></i></div>
+    </div>
+</header>
+
+
+<div class="search-form">
+    <div id="close-search" class="fas fa-times" onclick="navSearchCls()"></div>
+   <div class="form-contents">
+        <form action="" class="">
+            <input type="search" name="search" placeholder="search here..." id="search">
+            <label for="search-box" class="fas fa-search" id="searchPage" onclick="show()"></label>
+        </form>
+        <div class="searchDiv" style="color: rgb(0, 255, 13); width: 200px, height: 300px ">
+        <div  style="border: 1px solid grey; padding: 10px; border-radius: 10px;  box-shadow:
+            0 1px 1px hsl(0deg 0% 0% / 0.075),
+            0 2px 2px hsl(0deg 0% 0% / 0.075),
+            0 4px 4px hsl(0deg 0% 0% / 0.075),
+            0 8px 8px hsl(0deg 0% 0% / 0.075),
+            0 16px 16px hsl(0deg 0% 0% / 0.075);" class="d-none" id="area">
+            </div>
+        </div>
+   </div>
+</div>

@@ -1,0 +1,205 @@
+<link rel="stylesheet" href="/css/style.css">
+<style>
+    .lead {
+        font-size: 1.25rem;
+        font-weight: 300;
+    }
+    
+</style>
+{{> navbar}}
+
+<div class="post-section">
+<div class="wrapper bg-danger">
+    {{!-- <!-- Feed start--> --}}
+    <div class="post-cardL">
+      <h4 class="post-title">{{title}}</h4>
+      {{!-- <p class="lead user-name"> Author: <a href="#">{{fullName}}</a> </p> --}}
+      <div class="d-flex" style="justify-content: space-between;">
+        <p class="post-content">Published: {{createdAt}}</p>
+        <p> <i class="fas fa-eye"></i><span>{{count}}</span> </p>
+      </div>
+      <div class="post-img">
+        <img src="/uploads/{{image}}" alt="{{title}}" class="img-fluid rounded">
+      </div>
+        <hr>
+            <p class="blog-text">{{{content}}} </p>
+        <hr>
+        {{#if isLogged}}
+            <form class="form-control mb" action="/post/delete?post={{slugUrl}}" method="POST">
+                <a href="/post/edit?post={{slugUrl}}" class="btn btn-secondary">Edit post</a>
+                <button type="submit" class="btn btn-danger">Delete post</button>
+            </form>
+            {{else}}
+
+                <div class="row mb-4">
+                    <div class="post-like">
+                        {{!-- <ul class="button-links"> </li>
+                                <li id="comment-word">
+                                    <span id="comment-counter">0</span>
+                                    Comments
+                                </li>
+                            </ul> --}}
+                        <div class="post-like-btn">
+                            <button class="share-btn" id="share">
+                            <i class="fas fa-share-alt"></i>
+                            </button>
+                            <div class="share-options">
+                                <p class="title">share</p>
+                                <div class="social-media">
+                                    <button class="social-media-btn"><i class="far fa-folder-open"></i></button>
+                                    <button class="social-media-btn"><a href="https://whatsapp.com"><i class="fab fa-whatsapp"></i></a></button>
+                                    <button class="social-media-btn"><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></button>
+                                    <button class="social-media-btn"><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></button>
+                                    <button class="social-media-btn"><a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a></button>
+                                    <button class="social-media-btn"><a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a></button>
+                                    <button class="social-media-btn"><a href="https://t.me/account"><i class="fab fa-telegram"></i></a></button>
+                                </div>
+                                <div class="link-container">
+                                    {{!-- <p class="link" id="cpyPostLink">https://example.com/share</p> --}}
+                                    <input class="link" type="text" value="https://example.com/share" id="cpyPostLink">
+                                    <button class="copy-btn" onclick="shareCopy()">copy</button>
+                                </div>
+                            </div>
+                            {{!-- <i class="fas fa-comment" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"></i>  --}}
+                            <i class="fas fa-comment comentBtn" onclick="comentFun()"></i> 
+                        <hr>
+                        </div>                 
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col collapse multi-collapse" id="multiCollapseExample1">
+                            <p id="user-name">{{fullName}}</p> 
+                            <div class="col-sm-12 comments-card">
+                                <form action="/send/comment" method="POST">
+                                    <div class="textarea-btn p-3">
+                                        <input type="email" class="form-control comment comment-email" id="email" name="email" placeholder="name@example.com">
+                                        <textarea type="text" class="form-control comment-input" placeholder="add a comment" id="content" name="content"></textarea>
+                                        <button  type="submit" class="btn-comment" id="btn-comment">Comment</button>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    {{/if}}
+                </div>
+                    </div>
+                        <div class="coment-model">
+                            Comments
+                             {{#each comments}}
+                                <ul id="comment-list">
+                                    <b>Email: </b>  {{email}}  <br>
+                                    <b> Comment:  </b> {{content}}
+                                </ul>
+                               {{/each}}
+                        </div>
+                </div>
+    </div>
+    </div>
+
+
+    <div class="col-md-4 scroller-card">
+            <div class="card ">
+                <div class="card-header">
+                    <h5>Quote of the Day</h5>
+                </div>
+                <div class="card-body">
+                    <p class="quote">
+                        {{quote.quote}}
+                    </p>
+                </div>
+                <div class="card-footer">
+                    {{quote.author}}
+                </div>
+            </div>
+            <div class="post-all-blogs">
+                <h2><a href="/blogs">ALL NEWS</a></h2>
+                <div class="row">
+                    {{!-- {{#if blogs}} --}}
+                    <div class="col post-view-cards" style="overflow-y: scroll;">
+                {{#each blogs}}
+                        <div class="row g-0">
+                            <div class="col-md-4 post-all-child">
+                            <a href="/blogpost?post={{slugUrl}}">
+                                 <img class="img" id="post-scroll-img" src="/uploads/{{image}}" alt="{{title}}">
+                            </a> 
+                            </div>
+                            <div class="col-md-4 post-all-child2">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{title}}</h5>
+                                    <p class="card-text"><small class="text-muted">Published: {{createdAt}}</small></p>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    {{/each}}
+                    </div>
+                </div>
+            </div>
+    </div>
+  </div>
+</div>
+{{> footer}}
+
+{{!-- BLOG CONTENTS --}}
+ {{!-- <div class="post-container">
+        <!-- Portfolio Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Blog</h2>
+
+        <!-- Portfolio Grid Items-->
+        <div class="row justify-content-center">
+            <!-- Portfolio Item 1-->
+            {{#if blogs}}
+                {{#each blogs}}
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <a href="/blogpost?post={{slugUrl}}">
+                            <div class="card text-white home-blog">
+                                <img class="card-img fixed-blog-img" style="z-index: -1;" src="/uploads/{{image}}" alt="{{title}}">
+                                <div class="card-img-overlay fixed-blog-img">
+                                    <h5 class="card-title">{{title}}</h5>
+                                    <p class="card-text">Created: {{createdAt}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{/each}}
+                <div class="text-center">
+                    <a href="/blogs" class="btn btn-outline-secondary">All blogs</a>
+                </div>
+            {{else}}
+                <div class="alert alert-danger">
+                    Bloglar mavjud emas
+                </div>
+            {{/if}}
+        </div>
+    </div> --}}
+{{!-- BLOG CONTENTS END --}}
+
+<script type="text/javascript">
+     const shareBtn = document.querySelector('.share-btn');
+        const shareOptions = document.querySelector('.share-options');
+
+        shareBtn.addEventListener('click', () => {
+            shareOptions.classList.toggle('active');
+        });
+
+function comentFun() {
+     const comentBtn = document.querySelector('.comentBtn');
+    const comentImp = document.querySelector('#multiCollapseExample1');
+       
+        comentBtn.addEventListener('click', () => {
+            comentImp.classList.toggle('active');
+            {{!-- console.log('cliked') --}}
+        });
+}
+
+        function shareCopy() {
+            var copyText = document.getElementById("cpyPostLink");
+
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+
+            alert("Copied the text: " + copyText.value);
+            }
+</script>
+

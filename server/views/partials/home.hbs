@@ -1,0 +1,273 @@
+
+
+{{!-- <!-- home section starts  --> --}}
+
+    <section class="home container home-sections" id="home">
+        <div class="row">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                <div class="carousel-item active    " data-bs-interval="10000">
+                    <img src="assets/img/carousel/carousel-1.jpg" class="d-block w-100" alt="carousel">
+                    <div class="carousel-caption d-md-block">
+                        <div class="vrTour">
+                        <a href="/about#tab-VR">
+                            <h5 class="carousel-text carLang1">IT TECHNICUM</h5>
+                        <p class="carousel-paragrf carLang2">Kashkadarya College of Information Technology</p>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="assets/img/carousel/carousel-2.jpg" class="d-block w-100" alt="Carousel img">
+                    <div class="carousel-caption d-md-block">
+                        <div class="vrTour">
+                            <a href="/about#tab-VR">
+                                <h5 class="carousel-text text-right">Qarshi ATT TEXNIKUM</h5>
+                                <p class="carousel-paragrf text-right">Axborot Texnalogiyalari Texnikumi.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/img/carousel/carousel-3.jpg" class="d-block w-100" alt="Carousel img">
+                    <div class="carousel-caption d-md-block">
+                   <div class="vrTour" >
+                    <a href="/about#tab-VR">
+                        <h5 class="carousel-text text-left">Vertual  Tour</h5>
+                        <p class="carousel-paragrf text-left">Vertual travel to the building</p>
+                    </a>
+                   </div>
+                    </div>
+                </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden d-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden d-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    {{!-- <!-- home section ends --> --}}
+
+{{!-- <!-- category section starts  --> --}}
+
+    <section class="clients home-sections">
+
+        <div class="swiper clients-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide sildez">
+                    <div class="col-xs-6 md-4 sm-9 int-info">
+                        <a class="intLink" href="#home">
+                            <i class="fa fa-chalkboard "></i>
+                            <span>24</span>
+                            <hr style="width: 100px;">
+                            <h4 class="int-text fakTechLang">TEACHERS</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide sildez">
+                    <div class="col-xs-6 int-info">
+                        <a class="intLink" href="/">
+                            <i class="fa fa-graduation-cap"></i>
+                            <span>5</span>
+                            <hr style="width: 100px;">
+                            <h4 class="int-text fakLang">FACULTIES</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide sildez">
+                    <div class="col-xs-6 int-info">
+                        <a class="intLink" href="/">
+                            <i class="fa fa-user-graduate"></i>
+                            <span><hr style="width: 100px;"></span>
+                            <h4 class="int-text studentLang">STUDENTS</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide sildez">
+                    <div class="col-xs-6 int-info">
+                        <a class="intLink" href="/">
+                            <i class="fa fa-business-time"></i>
+                            <span><hr style="width: 100px;"></span>
+                            <h4 class="int-text">HAMKORLAR</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{!-- <!-- category section ends --> --}}
+
+{{!-- NEWS POST page content --}}
+<section class="page-section portfolio home-sections" id="blog">
+    <div class="container">
+        <h2 class="page-section-heading text-center text-uppercase  mb-0">YANGILIKLAR</h2>
+        <div class="row justify-content-center mt-4">
+            {{#if blogs}}
+                {{#each blogs}}
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        {{!-- <a href="/blogpost?post={{slugUrl}}">
+                            <div class="card text-white home-blog">
+                                <img class="card-img fixed-blog-img" style="z-index: -1;" src="/uploads/{{image}}" alt="{{title}}">
+                                <div class="card-img-overlay fixed-blog-img">
+                                    <h2 class="card-title">{{title}}</h2>
+                                    <p class="card-text">Created: {{createdAt}}</p>
+                                </div>
+                            </div>
+                        </a> --}}
+                         <a href="/blogpost?post={{slugUrl}}" class="read-post-more">
+                            <figure class="snip1527-home">
+                            <div class="image">
+                                <img class="img w-100 all-blog-img"  src="/uploads/{{image}}" alt="{{title}}">
+                                </div>
+                                <figcaption class="home-figcaption">
+                                    <div class="date">
+                                    <span class="day"> {{createdAt}}</span>
+                                    </div>
+                                    <h3>{{title}} </h3>
+                                    <p>
+                                    Read more →
+                                    </p>
+                                </figcaption>
+                            </figure>
+                        </a> 
+                    </div>
+                {{/each}}
+                <div class="text-center">
+                    <a href="/blogs" class=" btn-outline-secondary all-new-btn">Barchasi</a>
+                </div>
+            {{else}}
+                <div class="alert alert-danger">
+                    Yangiliklar mavjud emas
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</section>
+{{!-- Blog page content end--}}
+
+
+
+<section class="teachers home-sections">
+      <h2 class="page-section-heading text-center text-uppercase  mb-0">RAXBARIYAT</h2>
+    <div class="container teach-container">
+              <div class="col-md-12">
+              <div class="card teach-home-about">
+                <h2 class="teachLang">Bizning o'qituvchilarimiz</h2>
+              <p class="teachParagr">O'qituvchilarimiz o'z kasbining ustasi va ko'p yillik tajribaga ega!</p>
+              </div>
+            </div>
+          <div class="row row-cols-md-12 m-2 d-flex">
+            <div class="col-md-4 sm-4  home-teach-card">
+                <div class="card h-100 ">
+                    <div class="card-head teach-haed">
+                    <img src="assets/img/ATT1.jpg" class="card-img-top teach-img" alt="Teachers img">
+                    </div>
+                <div class="card-body teach-body">
+                  <h5 class="card-title teach-name">R.M.Abdiraxmanov</h5>
+                  <p class="card-text teach-positions">Derektor</p>
+                  <hr class="">
+                  <div class="socail">Conect:
+                     <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+               <div class="col-md-4 sm-2 home-teach-card">
+                <div class="card h-100 ">
+                <div class="card-head teach-haed">
+                 <a href="/about"><img src="assets/img/ATT1.jpg" class="card-img-top teach-img" alt="Teachers img"></a>
+                </div>
+                <div class="card-body teach-body">
+                  <h5 class="card-title teach-name">Raxim  Elmurodov</h5>
+                  <p class="card-text teach-positions">Ishlab chiqarish ta’limi bo‘yicha direktor o‘rinbosari</p>
+
+                  <hr class="">
+                  <div class="socail">Conect:
+                     <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 sm-2 home-teach-card">
+                <div class="card h-100 ">
+                    <div class="card-head teach-haed">
+                    <img src="assets/img/ATT1.jpg" class="card-img-top teach-img" alt="Teachers img">
+                    </div>
+                    <div class="card-body teach-body">
+                    <h5 class="card-title teach-name">B.Xolmurodov</h5>
+                    <p class="card-text teach-positions">O'quv tarbiyaviy ishlari bo'yicha derektor o'rinbosari</p>
+
+                    <hr class="teach-hr">
+                    <div class="socail">Conect:
+                        <a href="/https://t.me.com"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+              </div>
+            </div>
+            </div>
+        </div> 
+</section>
+
+
+{{!-- Reklama --}}
+
+ <section class="clients home-sections">
+     <h2 class="page-section-heading text-center text-uppercase clients-head-title  mb-4">Reklama xizmatlari</h2>
+        <div class="swiper clients-slider">
+            <div class="swiper-wrapper clients-cards">
+                <div class="swiper-slide silde">
+                    <img src="assets/img/ATT5.jpg" alt="">
+                     <h2 class="clients-title">Reklama</h2>
+                    </div>
+                <div class="swiper-slide silde">
+                    <img src="assets/img/logos/mygov.png" alt="">
+                    <h2 class="clients-title">Gov.uz</h2>
+                    </div>
+                <div class="swiper-slide silde">
+                    <img src="assets/img/logos/tatulogo.png" alt="">
+                    <h2 class="clients-title">TATU</h2>
+                    </div>
+                <div class="swiper-slide silde">
+                    <img src="assets/img/logos/ATT-logos.jpg" alt="">
+                    <h2 class="clients-title">Qarshi ATT </h2>
+                    </div>
+            </div>
+        </div>
+
+    </section>
+{{!-- Reklama end --}}
+
+{{!-- Map --}}
+
+<section class="att-Map home-sections">
+  <h1 class="heading map-title" id="qATT_MAP">Joylashuv</h1>
+  <div class="swiper clients-slider mapDot">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d366.43522227233984!2d65.79425736700382!3d38.882892627505385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f4ea76eb46b00a7%3A0xb6a72ea05125e14!2sQarshi%20axborot%20texnologiyalar%20texnikumi!5e0!3m2!1sen!2s!4v1645061003324!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+  </div>
+</section>
+
+{{!-- Map end --}}
+
+
+
+
+
+
