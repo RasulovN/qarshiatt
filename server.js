@@ -7,7 +7,7 @@ const flash = require('express-flash')
 const session = require('express-session')
 const MongoStore = require('connect-mongodb-session')(session)
 const connectDB = require('./config/db')
-const product = require("./api/product")
+//const product = require("./api/product")
 
 // init env variables
 dotenv.config()
@@ -35,15 +35,17 @@ app.use(flash())
 
 // Create static public folder
 app.use(express.static('public'))
+app.use(express.static('public/css'))
+app.use(express.static('public/uploads'))
 app.set('views', path.join(__dirname, 'views'));
 
 // Set hbs shablonizator
 app.engine('hbs', exphbs({extname: 'hbs'}))
 app.set('view engine', 'hbs')
 
-app.get('/api/product', product)
-// app.use('/', require('./routes/homeRoutes'))
-app.use('/', product)
+//app.get('/api/product', product)
+app.use('/', require('./routes/homeRoutes'))
+//app.use('/', product)
 app.use('/auth', require('./routes/authRoutes'))
 app.use('/post', require('./routes/postRoutes'))
 app.use('/send', require('./routes/commentRoutes'))
