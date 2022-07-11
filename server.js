@@ -50,9 +50,9 @@ app.use('/send', require('./routes/commentRoutes'))
 
 // catch 404 and forward to error handler
 app.get('*', function(req, res){
-  res.send(
+  res.status(404).send(
       `
-      <h2 style="color: green;">Page Not Found 404</h2>
+      <h2 style="color: green;" class="text-center">Page Not Found 404</h2>
       `, 404);
 });
 
