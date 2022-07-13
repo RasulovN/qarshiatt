@@ -111,10 +111,16 @@
 #chk:checked ~ .signup .login-label{
 	transform: scale(.6);
 }
+.backBtn{
+	background-color: #6d44b8;
+	text-align: center;
+	padding: 5px;
+	border-radius: 5px;	
+}
 
 /* LOGIN REGISTER END */
 </style>
-{{> postNavbar}}
+{{!-- {{> navbar}} --}}
 <section class="addBlogPost">
 <div class="auth-main">  	
 		<input type="checkbox" id="chk" aria-hidden="true">
@@ -130,6 +136,7 @@
 					<input type="password" class="form-input" name="password" id="password" placeholder="Password" required="true">
 					<button type="submit" class="login-button">Login</button>
 				</form>
+				<a href="/"><button class="backBtn">Back</button></a>
 			</div>
 
 			{{!-- <div class="login">

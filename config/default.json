@@ -1,0 +1,9 @@
+{
+    "Customer": {
+        "host": "localhost",
+        "port": 3000,
+        "MONGO_URI": "mongo_uri",
+        "NO_SECRET_KEY": "sec"
+      
+    }
+  }

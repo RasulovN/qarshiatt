@@ -11,8 +11,15 @@ const protected = (req, res, next) => {
     }
     next()
 }
+const isAdmin = (req, res, next) => {
+    if(!req.user.isAdmin)
+    return res.status(403).sen('Murojat rad etildi');
+    
+    next();
+}
 
 module.exports = {
     isAuth,
-    protected
+    protected,
+    isAdmin
 }

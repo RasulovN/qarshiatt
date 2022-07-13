@@ -17,8 +17,8 @@
       position: fixed;
       width: 100%
     }
-    .header .logo {
-      font-size: 10px;
+    .header .logo img{
+      margin: 0;
   }
     .header .navbar .nav-link {
       font-size: 1.7rem;
@@ -86,7 +86,7 @@
         width: 30rem;
     }
     .header .logo {
-        font-size: 16px;
+        font-size: 12 px;
     }
       .header .navbar .nav-link {
         margin-left: 2rem;
@@ -141,6 +141,9 @@
     }
     .header .logo {
         font-size: 16px;
+    }
+    .header .logo .logoLang{
+        font-size: 10px;
     }
     .header .navbar { 
       left: 150%;
@@ -307,7 +310,7 @@
           }
             /* TEACHERS */
             .teach-haed {
-              height: 200px;
+              height: 280px;
             }
             .teach-body{
               height: 100px;
@@ -340,7 +343,7 @@
           }
           /* TEACHERS */
           .teach-haed {
-            height: 200px;
+            height: 250px;
           }
           .teach-body{
             /* position: absolute; */

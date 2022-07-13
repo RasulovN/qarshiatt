@@ -45,7 +45,7 @@ router.post('/register', isAuth, async (req, res) => {
         const matchPassword = password === confirmPassword
 
         if(!matchPassword) {
-            req.flash('regErr', 'Passwords did not match')
+            req.flash('regErr', 'email or Passwords did not match')
             res.redirect('/auth/register')
         }
 
@@ -64,17 +64,12 @@ router.post('/register', isAuth, async (req, res) => {
 })
 
 
-const userAdmin = {
-    email: 'nurbekrasulov71@gmail.com',
-    password: '$nurbek2000'
-}  
-
 router.post('/login', isAuth, async (req, res) => {
     try {
         const { email, password } = req.body
 
-        // const userExist = await User.findOne({ email })
-        const userExist = userAdmin
+        const userExist = await User.findOne({ email, password })
+        // const userExist = userAdmin
 
         if(!userExist) {
             req.flash('logErr', 'Data entered incorrectly')
@@ -85,11 +80,11 @@ router.post('/login', isAuth, async (req, res) => {
         const matchEmail = userExist.email === email
 
         if(!matchEmail) {
-            req.flash('logErr', 'Data entered incorrectly Email')
+            req.flash('logErr', 'Data entered incorrectly Password, Email')
             res.redirect('/auth/login')
         }
         if(!matchPassword) {
-            req.flash('logErr', 'Data entered incorrectly Password')
+            req.flash('logErr', 'Data entered incorrectly Password Email')
             res.redirect('/auth/login')
         }
 
