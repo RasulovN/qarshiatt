@@ -1,10 +1,10 @@
 body {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../assets/img/Background.jpg) no-repeat;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/img/Background.jpg') no-repeat;
+  /* background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../assets/img/bb.jpg) no-repeat; */
+  /* background: url('../assets/img/bb.jpg') no-repeat; */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  /* background: #000022; */
+  background: #131A20;
   overflow-x: none;
 }
 
@@ -22,15 +22,21 @@ a:hover{
   margin-top: 100px;
   background-color: #11daf5;
   width: 100vw;
+  margin-top: 120px;
+  margin-bottom: 20px;
 }
 
 /* Blog */
 .blog-contents{
+  margin-top: 20px;
   background-color: rgb(49, 43, 43);
 }
 .carousel-inner {
   background-color: none;
+  /* box-shadow: 2px 2px 6px 2px rgb(40, 39, 39); */
+  box-shadow: 2px 2px 6px 2px rgba(203, 203, 203, 0.7);
 }
+
 .carousel-item {
   background: none;
   width: 100%;
@@ -643,7 +649,8 @@ transition: 0.5s;
 .teach-home-about{
 height: 100%;
 font-size: 14px;
-background: linear-gradient(90deg, #0a2972 0%, #1444b6 11%,#0c2c79 58%, #174fd3 100%);
+/* background: linear-gradient(90deg, #0a2972 0%, #1444b6 11%,#0c2c79 58%, #174fd3 100%); */
+background-color: #131A20;
 text-align: center;
 padding: 15px;
 color: #fff;

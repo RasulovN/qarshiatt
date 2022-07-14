@@ -553,7 +553,7 @@ html::-webkit-scrollbar-thumb {
 
 .clients {
   width: 100%;
-  background: rgba(43, 47, 77, 0.555);
+  background: rgba(27, 30, 49, 0.555);
 }
 .clients-head-title{
   color: #fff;
@@ -602,11 +602,12 @@ html::-webkit-scrollbar-thumb {
 
 /* FOOTER */
 .footer {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('../assets/img/Qarshi-ATT.jpg') no-repeat;
-  background:linear-gradient(rgba(4, 9, 30, 0.568), rgba(4, 9, 30, 0.568)), url("../assets/img/Qarshi-ATT.jpg") no-repeat;
+  /* background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('../assets/img/Background.jpg') no-repeat; */
+  /* background:linear-gradient(rgba(4, 9, 30, 0.568), rgba(4, 9, 30, 0.568)), url("../assets/img/bb.jpg") no-repeat; */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+    background: #131A20;
 }
 
 .footer .box-container {
@@ -1117,7 +1118,7 @@ canvas {
   top: 20px;
   left: 0;
   right: 0;
-  padding: 2rem 9%;
+  padding: 0.9rem 1%;
   z-index: 1000;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1125,6 +1126,7 @@ canvas {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+          /* background: rgba(33, 41, 48, 0.361); */
 }
 
 .header.active {
