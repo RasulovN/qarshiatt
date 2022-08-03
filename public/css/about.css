@@ -280,41 +280,54 @@ a {
 
 
 /* TECH CONTAINER */
-.ab-teach-container {
-  background-color: #fff;
-  height: 800px;
-  padding: 10px;
-  justify-content: center;
-}
-
-
-.ab-teach-card {
-  font-size: 16px;
-   margin: 10px;
-  height: 200px;
-  background-color: #f1fdff;
-  border-radius: 15px;
-  box-shadow: 2px 4px 8px rgb(71, 71, 71);
-}
-.teach-img-content {
-  text-decoration: none;
-  width: 45%;
-  height: 100%;
-  padding: 0;
-}
-
-#ab-teach-img {
-  height: 100%;
+.ab-teachers {
   width: 100%;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  padding: 8px;
+}
+.article-card {
+  max-width: 400px;
+  height: 490px;
+  background: #fff;
+  box-shadow: 0 0 10px 1px rgb(0 0 0 / 10%);
+  -webkit-transition: -webkit-transform .3s ease-out;
+  transition: -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out;
+  transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+  border-radius: 1em 1em 0.5em 0.5em;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  flex-direction: column;
+  margin: 40px auto;
+}
+.article-card__thumbnail {
+  overflow: hidden;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  border-radius: 0.5em 0.5em 0 0;
+}
+.article-card__thumbnail img {
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  width: 100%;
+}
+.article-card__content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.article-card__title {
+  font-size: 18px;
+}
+.article-card__meta {
+  color: #000;
+}
+.article-card__timestamp {
+  display: inline-block;
+  margin-right: 20px;
 }
 
-.ab-teach-info {
-  width: 55%;
-  display: flex;
-  align-items: center;
-}
 
 /* TECH CONTAINER END */
 

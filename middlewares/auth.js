@@ -5,6 +5,7 @@ const isAuth = (req, res, next) => {
     next()
 }
 
+//admin kirish
 const protected = (req, res, next) => {
     if(!req.session.isLogged) {
         return res.redirect('/auth/login')
@@ -21,5 +22,5 @@ const isAdmin = (req, res, next) => {
 module.exports = {
     isAuth,
     protected,
-    isAdmin
+    isAdmin,
 }

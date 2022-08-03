@@ -1,0 +1,475 @@
+<style>
+    body{
+        background-color: rgb(255, 255, 251);
+    }
+    header{
+        background-color: red;
+    }
+    section{
+        width: 100vw;
+        display: flex;
+    }
+    .sidebar{
+        height: 100vh;
+        background-color: rgb(6, 6, 6);
+        flex-shrink: 0!important;
+    }
+    .text-white {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-white-rgb),var(--bs-text-opacity))!important;
+}
+.side-content{
+    width: 280px;
+    height: 100%;
+    background: #000;
+}
+.side-content .nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+main{
+    width: 100vw;
+    height: 100%;
+}
+main .nav-cards{
+    padding: 5px;
+}
+main .registerForm {
+   display: none;
+}
+main .newsList {
+    display: none;
+}
+main .usersList {
+    display: none;
+}
+main .addNews {
+    display: none;
+}
+main .commentsList {
+    display: none;
+}
+main header nav .sidebar-toggler{
+    font-size: 20px;
+}
+
+</style>
+
+<section>
+    <div class="sidebar">
+       <div class="d-flex side-content flex-column flex-shrink-0 p-3 text-bg-dark " style="width: 280px; hegiht:800px;">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            <span class="fs-4">Sidebar</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+            <li>
+                <b href="#"  class="nav-link text-white dashboard" aria-current="page">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+                Dashboard
+                </b>
+            </li>
+            <li>
+                <b onclick="newsFunc()" class="nav-link text-white newsNav">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                Yangliklar
+                </b> 
+            </li>
+            <li>
+                <b onclick="usersFunc()" class="nav-link text-white usersNav" onclick="userNavFunc()">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+                Users
+                </b>
+            </li>
+            <li>
+                <b onclick="addUserFunc()" class="nav-link text-white addUserNav" onclick="userNavFunc()">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+                Add User
+                </b>
+            </li>
+            <li>
+                <b onclick="commentsFunc()" class="nav-link text-white commentsNav">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Comments
+                </b>
+            </li>
+            <li>
+                <b onclick="addNewsFunc()" class="nav-link text-white addNewsNav">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Yanglik qo'shish
+                </b>
+            </li>
+            </ul>
+            <hr>
+            <div class="dropdown">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong>Admin</strong>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                <li><a class="dropdown-item" href="#">News</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                 {{#if isLogged}}
+                <a class="nav-link" href="/auth/logout">Log out</a>
+                {{else}}
+                <li><a class="dropdown-item" href="/auth/login">Login</a></li>
+                <li><a class="dropdown-item" href="/auth/register">Sign up</a></li>
+                {{/if}}
+            </ul>
+    </div>
+        </div>
+    </div>
+
+    <main>
+    <header>
+        <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                {{!-- <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                </a> --}}
+                <b class="sidebar-toggler flex-shrink-0" onclick="navFunc()" ondblclick="navOnFunc()">
+                    <i class="fa fa-bars"></i>
+                </b>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-envelope me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Message</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all message</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-bell me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Notificatin</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Profile updated</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">New user added</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Password changed</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all notifications</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{!-- <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> --}}
+                            <span class="d-none d-lg-inline-flex">Admin</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            {{#if isLogged}}
+                                <a href="/auth/logout" class="dropdown-item">Log Out</a>
+                                {{else}}
+                                <a href="/auth/login" class="dropdown-item">Login</a>
+                                <a href="/auth/register" class="dropdown-item">Sign up</a>
+                                {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </nav>
+    </header>
+
+     <div class="row g-4 nav-cards">
+                    <div class="col-sm-6 col-xl-3 ">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-line fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Yangliklar</p>
+                                <h6 class="mb-0">234</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Users</p>
+                                <h6 class="mb-0">2</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Yanglik ko'rishlar soni</p>
+                                <h6 class="mb-0">34</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">coments</p>
+                                <h6 class="mb-0">14</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{{!-- News --}}
+            <div class="container-fluid pt-4 px-4 newsList" id="newsList">
+                <div class="bg-light text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Yangliklar</h6>
+                        <a href="">Barchasi</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-dark">
+                                    <th scope="col"><input class="form-check-input" type="checkbox"></th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">News ID</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Delete</th>
+                                    <th scope="col">Update</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                      {{#each blogs}}
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox"></td>
+                                    <td>{{createdAt}}</td>
+                                    <td>{{_id}}</td>
+                                    <td>{{title}}</td>
+                                    <td><img src="/uploads/{{image}}" alt="{{title}}" width="80px"></td>
+                                        <form class="form-control mb" action="/post/delete?post={{slugUrl}}" method="POST">
+                                            <td><button type="submit" class="btn btn-danger">Delete post</button></td>
+                                            <td><a href="/post/edit?post={{slugUrl}}" class="btn btn-secondary">Edit post</a></td>
+                                        </form>
+                                {{/each}}
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+           {{!-- Users --}}
+            <div class="bg-light rounded h-100 p-4 usersList">
+                            <h6 class="mb-4">Users Table</h6>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Full Name</th>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Phone</th>
+                                            <th scope="col">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            {{#each users}}
+                                        <tr>
+                                            <th scope="row">#</th>
+                                            <td>{{fullName}}</td>
+                                            <td>{{_id}}</td>
+                                            <td>{{email}}</td>
+                                            <td>{{phone}}</td>
+                                            <td>{{isAdmin}}</td>
+                                        </tr>
+                                            {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+            </div>
+
+    {{!-- add user register --}}
+            <div class="bg-light rounded h-100 p-4 registerForm">
+                {{#if regErr}}
+                    <div class="alert alert-danger">
+                        {{regErr}}
+                    </div>
+                {{/if}}
+                            <h6 class="mb-4">Register Form</h6>
+                            <form action="/auth/register" method="POST">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Full Names</label>
+                                    <input type="text" class="form-control" id="fullName" aria-describedby="emailHelp" required>
+                                    </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Phone</label>
+                                    <input type="text" class="form-control" id="phone" placeholder="your phone" name="phone" value="+998" aria-describedby="emailHelp" required>
+                                    </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" aria-describedby="emailHelp" required>
+                                    <div id="emailHelp" class="form-text">Takrorlanmagan email kiriting </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password " placeholder="your password" name="password" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Confrim password</label>
+                                    <input type="password" class="form-control" id="confirmPassword" placeholder="your password again" name="confirmPassword" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary login-button">Sign in</button>
+                            </form>
+            </div>
+
+            {{!-- addNews --}}
+            <div class="container mt-5 addNews">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card p-4 card-blog">
+                            <form action="/post/add" method="POST" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="title" class="form-label">Post title</label>
+                                    <input type="text" class="form-control" id="title" placeholder="Your name" name="title" required >
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image" class="form-label">Post image</label>
+                                    <input type="file" class="form-control" id="image" name="image" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="content" class="form-label">Post content</label>
+                                    <textarea class="form-control" id="content" rows="8" name="content" ></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-primary">Add Post</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{{!-- comments list --}}
+            <div class="h-100 bg-light rounded p-4 commentsList">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <h6 class="mb-0">Comments</h6>
+                            </div>
+                                <a href="">Show All</a>
+                            <div class="d-flex align-items-center border-bottom py-3">
+                                <img class="rounded-circle flex-shrink-0" src="/uploads/{{image}}" alt="" style="width: 40px; height: 40px;">
+                         
+                                <div class="w-100 ms-3">
+                                    <div class="coment-model">
+                                        Comments
+                                        {{#each comments}}
+                                            <ul id="comment-list">
+                                                <b>Email: </b>  {{email}}  <br>
+                                                <b> Comment:  </b> {{content}}
+                                            </ul>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    </main>
+</section>
+
+
+<script type="text/javascript">
+
+function navFunc(){
+    document.querySelector('.sidebar').style.display = 'none'
+}
+function navOnFunc(){
+    document.querySelector('.sidebar').style.display = 'block'
+}
+
+function newsFunc(){
+    document.querySelector('.newsList').style.display = 'block'
+    document.querySelector('.usersList').style.display = 'none'
+    document.querySelector('.registerForm').style.display = 'none'
+    document.querySelector('.commentsList').style.display = 'none'
+    document.querySelector('.addNews').style.display = 'none'
+}
+function usersFunc(){
+    document.querySelector('.usersList').style.display = 'block'
+    document.querySelector('.newsList').style.display = 'none'
+    document.querySelector('.registerForm').style.display = 'none'
+    document.querySelector('.commentsList').style.display = 'none'
+    document.querySelector('.addNews').style.display = 'none'
+}
+function addUserFunc(){
+    document.querySelector('.registerForm').style.display = 'block'
+    document.querySelector('.newsList').style.display = 'none'
+    document.querySelector('.usersList').style.display = 'none'
+    document.querySelector('.commentsList').style.display = 'none'
+    document.querySelector('.addNews').style.display = 'none'
+}
+function commentsFunc(){
+    document.querySelector('.commentsList').style.display = 'block'
+    document.querySelector('.newsList').style.display = 'none'
+    document.querySelector('.usersList').style.display = 'none'
+    document.querySelector('.addNews').style.display = 'none'
+    document.querySelector('.registerForm').style.display = 'none'
+}
+function addNewsFunc(){
+    document.querySelector('.addNews').style.display = 'block'
+    document.querySelector('.newsList').style.display = 'none'
+    document.querySelector('.usersList').style.display = 'none'
+    document.querySelector('.registerForm').style.display = 'none'
+    document.querySelector('.commentsList').style.display = 'none'
+}
+</script>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#content' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>

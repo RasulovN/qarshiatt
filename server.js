@@ -77,6 +77,7 @@ app.get('/cool', (req, res) => res.send(cool()))
 
 app.use('/', require('./routes/homeRoutes'))
 app.use('/auth', require('./routes/authRoutes'))
+app.use('/dash', require('./routes/adminRoutes'))
 app.use('/post', require('./routes/postRoutes'))
 app.use('/send', require('./routes/commentRoutes'))
 // catch 404 and forward to error handler

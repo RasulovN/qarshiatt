@@ -1,5 +1,9 @@
 {{!--
+
+
 <!-- home section starts  --> --}}
+
+
 
 <section class="home container home-sections" id="home">
     <div class="row">
@@ -123,34 +127,19 @@
         <h2 class="page-section-heading text-center text-uppercase  mb-0">YANGILIKLAR</h2>
         <div class="row justify-content-center mt-4">
             {{#if blogs}}
-            {{#each blogs}}
+            {{#each blogs}}  
             <div class="col-md-6 col-lg-4 mb-5">
-                {{!-- <a href="/blogpost?post={{slugUrl}}">
-                    <div class="card text-white home-blog">
-                        <img class="card-img fixed-blog-img" style="z-index: -1;" src="/uploads/{{image}}"
-                            alt="{{title}}">
-                        <div class="card-img-overlay fixed-blog-img">
-                            <h2 class="card-title">{{title}}</h2>
-                            <p class="card-text">Created: {{createdAt}}</p>
+                 <a class="article-card-news" href="/blogpost?post={{slugUrl}}">
+                        <div class="article-card__thumbnail">
+                            <img src="uploads/{{image}}" alt="{{title}}">
                         </div>
-                    </div>
-                </a> --}}
-                <a href="/blogpost?post={{slugUrl}}" class="read-post-more">
-                    <figure class="snip1527-home">
-                        <div class="image">
-                            <img class="img w-100 all-blog-img" src="/uploads/{{image}}" alt="{{title}}">
-                        </div>
-                        <figcaption class="home-figcaption">
-                            <div class="date">
-                                <span class="day"> {{createdAt}}</span>
+                        <div class="article-card__content">
+                            <h2 class="article-card__title">{{title}} </h2>
+                            <div class="article-card__meta mt-3">
+                                <span class="article-card__timestamp"><i class="ion-clock"></i> {{createdAt}}</span>
                             </div>
-                            <h3>{{title}} </h3>
-                            <p>
-                                Read more →
-                            </p>
-                        </figcaption>
-                    </figure>
-                </a>
+                        </div>
+                    </a>
             </div>
             {{/each}}
             <div class="text-center">
@@ -158,7 +147,7 @@
             </div>
             {{else}}
             <div class="alert alert-danger">
-                Yangiliklar mavjud emas
+                <h3>Yangiliklar mavjud emas</h3>
             </div>
             {{/if}}
         </div>
@@ -177,65 +166,64 @@
                 <p class="teachParagr">O'qituvchilarimiz o'z kasbining ustasi va ko'p yillik tajribaga ega!</p>
             </div>
         </div>
-        <div class="row row-cols-md-12 m-2 d-flex">
-            <div class="col-md-4 sm-4  home-teach-card">
-                <div class="card h-100 ">
-                    <div class="card-head teach-haed">
-                        <a href="/about#tab-typescript"><img src="assets/img/teachers/Abdiraxmanov.jpg"
-                                class="card-img-top teach-img" alt="Teachers img"> </a>
-                    </div>
-                    <div class="card-body teach-body">
-                        <h5 class="card-title teach-name">Abdiraxmanov Ravshan</h5>
-                        <p class="card-text teach-positions">Derektor</p>
-                        <hr class="">
-                        <div class="socail">Conect:
-                            <a href="https://t.me/qashqadaryoATT"><i class="fab fa-telegram"></i></a>
-                            <a href="https://www.instagram.com/qashqadaryo.att/"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.facebook.com/QashqadaryoATT"><i class="fab fa-facebook-f"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 sm-2 home-teach-card">
-                <div class="card h-100 ">
-                    <div class="card-head teach-haed">
-                        <a href="/about#tab-typescript"><img src="assets/img/teachers/XBekjon.jpg"
-                                class="card-img-top teach-img" alt="Teachers img"></a>
-                    </div>
-                    <div class="card-body teach-body">
-                        <h5 class="card-title teach-name">Xolmurodov Bekjon</h5>
-                        <p class="card-text teach-positions">O'quv tarbiyaviy ishlari bo'yicha derektor o'rinbosari</p>
 
-                        <hr class="">
-                        <div class="socail">Conect:
-                            <a href="https://t.me/qashqadaryoATT"><i class="fab fa-telegram"></i></a>
-                            <a href="https://www.instagram.com/qashqadaryo.att/"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.facebook.com/QashqadaryoATT"><i class="fab fa-facebook-f"></i></a>
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 col-11">
+            <a class="article-card" href="/about#tab-typescript">
+                        <div class="article-card__thumbnail">
+                            <img src="assets/img/teachers/Abdiraxmanov.jpg" data-was-processed="true" alt="Teachers img">
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 sm-2 home-teach-card">
-                <div class="card h-100 ">
-                    <div class="card-head teach-haed">
-                        <a href="/about#tab-typescript"><img src="assets/img/teachers/RMalika.jpg"
-                                class="card-img-top teach-img" alt="Teachers img"></a>
-                    </div>
-                    <div class="card-body teach-body">
-                        <h5 class="card-title teach-name">Ravshanova Malika G'afurovna</h5>
-                        <p class="card-text teach-positions">Oʻquv-metodik boʻlim boshligʻi</p>
+                        <div class="article-card__content">
+                            <h2 class="article-card__title">Abdiraxmanov Ravshan</h2>
+                            <div class="article-card__meta mt-3">
+                                <p class="article-card__timestamp">Derektor</p>
+                            </div>
+                        </div>
+                    </a>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-11">
+                    <a class="article-card" href="/about#tab-typescript">
+                                <div class="article-card__thumbnail">
+                                    <img src="assets/img/teachers/XBekjon.jpg" data-was-processed="true" alt="Teachers img">
+                                </div>
+                                <div class="article-card__content">
+                                    <h2 class="article-card__title">Xolmurodov Bekjon</h2>
+                                    <div class="article-card__meta mt-3">
+                                        <p class="article-card__timestamp">O'quv tarbiyaviy ishlari bo'yicha derektor o'rinbosari</p>
+                                    </div>
+                                </div>
+                            </a>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-11">
+                    <a class="article-card" href="/about#tab-typescript">
+                                <div class="article-card__thumbnail">
+                                    <img src="assets/img/teachers/RMalika.jpg" data-was-processed="true" alt="Teachers img">
+                                </div>
+                                <div class="article-card__content">
+                                    <h2 class="article-card__title">Ravshanova Malika G'afurovna</h2>
+                                    <div class="article-card__meta mt-3">
+                                        <p class="article-card__timestamp">Oʻquv-metodik boʻlim boshligʻi</p>
+                                    </div>
+                                </div>
+                            </a>
 
-                        <hr class="teach-hr">
-                        <div class="socail">Conect:
-                            <a href="https://t.me/qashqadaryoATT"><i class="fab fa-telegram"></i></a>
-                            <a href="https://www.instagram.com/qashqadaryo.att/"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.facebook.com/QashqadaryoATT"><i class="fab fa-facebook-f"></i></a>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        <div class="col-lg-3 col-sm-6 col-11">
+                    <a class="article-card" href="/about#tab-typescript">
+                                <div class="article-card__thumbnail">
+                                    <img src="assets/img/teachers/ANazira.jpg" data-was-processed="true" alt="Teachers img">
+                                </div>
+                                <div class="article-card__content">
+                                    <h2 class="article-card__title">Adilova Nazira Bobomuradovna</h2>
+                                    <div class="article-card__meta mt-3">
+                                        <p class="article-card__timestamp">Moliya-iqtisod boʻyicha direktor oʻrinbosari</p>
+                                    </div>
+                                </div>
+                            </a>
+
             </div>
         </div>
-    </div>
+        </div>
 </section>
 
 

@@ -3,27 +3,27 @@
 <section class="allBlog-container">
 <div class="container">
   <div class="row allBlog-rows">
+    {{#if blogs}}
       {{#each blogs}}
-    <div class="col-md-6 sm-5 col-sm-offset-1">
-          <a href="/blogpost?post={{slugUrl}}" class="read-post-more">
-        <figure class="snip1527">
-          <div class="image">
-            <img class="img w-100 all-blog-img"  src="/uploads/{{image}}" alt="{{title}}">
+   <div class="col-md-6 col-lg-4 mb-5">
+                 <a class="article-card-news" href="/blogpost?post={{slugUrl}}">
+                        <div class="article-card__thumbnail">
+                            <img src="uploads/{{image}}" alt="{{title}}">
+                        </div>
+                        <div class="article-card__content">
+                            <h2 class="article-card__title">{{title}} </h2>
+                            <div class="article-card__meta mt-3">
+                                <span class="article-card__timestamp"><i class="ion-clock"></i> {{createdAt}}</span>
+                            </div>
+                        </div>
+                    </a>
             </div>
-          <figcaption>
-            <div class="date">
-              {{!-- <span class="day">28</span><span class="month">Oct</span> --}}
-              <span class="day"> {{createdAt}}</span>
-              </div>
-              <h3>{{title}} </h3>
-            <p>
-               Read more →
-            </p>
-          </figcaption>
-        </figure>
-      </a> 
-    </div>
     {{/each}}
+     {{else}}
+            <div class="alert alert-danger" style="height: 500px; margin: 20px">
+                <h2>Yangiliklar mavjud emas</h2>
+            </div>
+            {{/if}}
   </div>
 </div>
 

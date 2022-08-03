@@ -5,7 +5,6 @@ const Comment = require('../models/commentModel');
 const superagent = require('superagent')
 const quoteGenerateRandom = require('../quote/quote')
 const { isAuth } = require('../middlewares/auth');
-const router = Router()
 
 
 const homeControl = async (req, res) => {
@@ -54,7 +53,6 @@ const blogsPostController = async (req, res) => {
         const blogs = await Blog.find().limit(6).lean()
         const comments = await Comment.find().limit().lean()
         const user = await User.find().lean()
-
         const blog = await Blog.findOne({ slugUrl })
 
         async function updateVistedCount() {
